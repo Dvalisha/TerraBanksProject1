@@ -24,8 +24,20 @@
 
         //Part 3
         float heightForBmi = height / 100;
-        Console.WriteLine(heightForBmi);
         Console.WriteLine("");
-        Console.WriteLine(weight / (heightForBmi * heightForBmi));   
+        Console.WriteLine("Your budy index is: " + weight / (heightForBmi * heightForBmi));
+
+        //Part 4
+        int num1 = 1;
+        Console.WriteLine("");
+        Console.WriteLine("   |   |   ");
+        Console.WriteLine(" " + num1 + " | " + ++num1 + " | " + ++num1 + " ");
+        Console.WriteLine("___|___|___");
+        Console.WriteLine("   |   |   ");
+        Console.WriteLine(" " + ++num1 + " | " + ++num1 + " | " + ++num1 + " ");
+        Console.WriteLine("___|___|___");
+        Console.WriteLine("   |   |   ");
+        Console.WriteLine(" " + ++num1 + " | " + ++num1 + " | " + ++num1 + " ");
+        Console.WriteLine("___|___|___");
     }
 }   
