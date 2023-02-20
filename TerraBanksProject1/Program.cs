@@ -21,6 +21,12 @@
         float height = float.Parse(Console.ReadLine());
         Console.Write("Please, enter your weight in kg: ");
         float weight = float.Parse(Console.ReadLine());
+        Console.WriteLine("");
+        Console.WriteLine("Your name is: " + name);
+        Console.WriteLine("Your surname is: " + surname);
+        Console.WriteLine("Your age is: " + age);
+        Console.WriteLine("Your height is: " + height);
+        Console.WriteLine("Your weight is: " + weight);
 
         //Part 3
         float heightForBmi = height / 100;
