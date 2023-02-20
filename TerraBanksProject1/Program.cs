@@ -38,6 +38,6 @@
         Console.WriteLine("___|___|___");
         Console.WriteLine("   |   |   ");
         Console.WriteLine(" " + ++num1 + " | " + ++num1 + " | " + ++num1 + " ");
-        Console.WriteLine("___|___|___");
+        Console.WriteLine("   |   |   ");
     }
 }   
