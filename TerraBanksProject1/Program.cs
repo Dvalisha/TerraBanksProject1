@@ -3,13 +3,14 @@
     static void Main(string[] args)
     {
         // Homework 3
-        // Part 1
+        // 1. შევქმანთ სამი ცვლადი (x, z, y). მივანიჭოთ მნიშვნელობები. გამოვიყავნოთ კონსოლში: x + z * y = ჯამი; მაგ. 4, 5, 10-ის შედეგია 54.
         int x = 4;
         int y = 10;
         int z = 5;
         Console.WriteLine(x + y * z);
 
-        // Part 2
+        // 2. პროგრამა სთავაზობს მომხმარებელს შეიყვანოს სახელი (Archil), გვარი (Sikharulidze), ასაკი (34), სიმართლე (171) და წონა (88.7).
+        // შევინახოთ ეს მონაცემები შესაბამისი ტიპის ცვლადებში. გამოვიყვანოთ მთელი ინფორმაცია კონსოლში.
         Console.WriteLine("");
         Console.Write("Please, enter your name: ");
         string name = Console.ReadLine();
@@ -28,12 +29,12 @@
         Console.WriteLine("Your height is: " + height);
         Console.WriteLine("Your weight is: " + weight);
 
-        //Part 3
+        // 3. დაწერეთ კოდი, რომელიც ითვლის ადამიანის BMI (Body Mass Index) მოიძიეთ ფორმულა ინტერნეტში. ლოგიკა და კოდი დამოუკიდებლად გაწერეთ.
         float heightForBmi = height / 100;
         Console.WriteLine("");
         Console.WriteLine("Your budy index is: " + weight / (heightForBmi * heightForBmi));
 
-        //Part 4
+        // 4. დამიხატეთ კონსოლში შემდეგი ნახატი:
         int num1 = 1;
         Console.WriteLine("");
         Console.WriteLine("   |   |   ");
