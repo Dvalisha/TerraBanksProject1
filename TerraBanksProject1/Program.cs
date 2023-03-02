@@ -1,109 +1,100 @@
-﻿using System.Runtime.CompilerServices;
+﻿using System.Diagnostics.Metrics;
+using System.Net.NetworkInformation;
+using System.Runtime.CompilerServices;
 
 class MyMain
 {
     static void Main(string[] args)
     {
-        // Homework 3
-        // 1. პირველი მეთოდის გამოძახება
-        getSum(5, 4);
-        Console.WriteLine();
-
-        //   2. მომხმარებელს შეყავს მონაცემები
-        Console.Write("Please enter Number 1: ");
-        double x1 = double.Parse(Console.ReadLine());
-
-        Console.Write("Please enter Number 2: ");
-        double x2 = double.Parse(Console.ReadLine());
-
-        Console.Write("Please enter Number 3: ");
-        double x3 = double.Parse(Console.ReadLine());
-
-        Console.Write("Please enter Number 4: ");
-        double x4 = double.Parse(Console.ReadLine());
-
-        // 2. მეორე მეთოდის გამოძახება
-        Console.WriteLine();
-        minMax(x1, x2, x3, x4);
-        Console.WriteLine();
-
-        //   3. მესამე მეთოდის გამოძახება
-        fruits();
-
-
-        // 1. შევქმნათ მეთოდი, რომელსაც გადავცემთ ორ სრულ რიცხვს. მეთოდმა უნდა დააბრუნოს ორი რიცხვის ჯამი. გამოვიყვანოთ ეს ჯამი შესვლის წერტილის მეთოდის მეშვეობით კონსოლში
-        static void getSum(int x, int y)
-        {
-        Console.WriteLine(x + y);
-        }
-
-        //   2. შევქმნათ მეთოდი. ვთხოვოთ მომხმარებელს შეიყვანოს ოთხი ნებისმიეირ ტიპის რიცხვი (ანუ არა მხოლოდ ინტეჯერი).
-        //   მეთოდის ფარგლებში უნდა მოიძებნოს ამ ოთხი რიცხვიდან ყველაზე დიდი და ყველაზე პატარა. მეთოდმა უნდა გამოიყვანოს კონსოლში ეს ორი რიცხვი.
-        static void minMax(double x1,double x2, double x3, double x4)
-        {
-            if (x1 >= x2 && x1 >= x3 && x1 >= x4) 
-            {
-                Console.WriteLine("The highest number is: " + x1);
-            }
-            else if (x2 >= x1 && x2 >= x3 && x2 >= x4) 
-            {
-                Console.WriteLine("The highest number is: " + x2);
-            }
-            else if (x3 >= x1 && x3 >= x2 && x3 >= x4)
-            {
-                Console.WriteLine("The highest number is: " + x3);
-            }
-            else 
-            {
-                Console.WriteLine("The highest number is: " + x4);
-            }
-
-            if (x1 <= x2 && x1 <= x3 && x1 <= x4)
-            {
-                Console.WriteLine("The lowest number is: " + x1);
-            }
-            else if (x2 <= x1 && x2 <= x3 && x2 <= x4)
-            {
-                Console.WriteLine("The lowest number is: " + x2);
-            }
-            else if (x3 <= x1 && x3 <= x2 && x3 <= x4)
-            {
-                Console.WriteLine("The lowest number is: " + x3);
-            }
-            else 
-            {
-                Console.WriteLine("The lowest number is: " + x4);
-            }
-        }
-
-        //   3. შევქმნათ მეთოდი, რომელმაც უნდა მიიღოს მეორე მეთოდის მეშვეობით მომხმარებლისგან ხილის დასახელება.
-        //   ამ ხილის დასახელების მიღების შემდეგ switch ოპერატორის მეშვეობით ნახოს თუ რომელი ხილია და გამოიყვანოს შესაბამისი შეტყობინება.
-        //   თუ ასეთი ხილი არ მოიძებნა, ამის შესახებაც მომხმარებელმა უნდა მიიღოს შეტყობინება. ხილი: apple, watermelon, melon, cherry, strawberry.
-        static void fruits()
-        {
-            Console.Write("Please enter a fruit: ");
-            string fruitName = Console.ReadLine();
-            switch (fruitName) 
-            {
-                case "apple":
-                    Console.WriteLine("Fruit: apple");
-                    break;
-                case "watermelon":
-                    Console.WriteLine("Fruit: watermelon");
-                    break;
-                case "melon":
-                    Console.WriteLine("Fruit: melon");
-                    break;
-                case "cherry":
-                    Console.WriteLine("Fruit: cherry");
-                    break;
-                case "strawberry":
-                    Console.WriteLine("Fruit: strawberry");
-                    break;
-                default:
-                    Console.WriteLine("There is no such fruit");
-                    break;
-            }
-        }
+        // Game
+        startGame();
     }
-}   
+
+    static void startGame()
+    {
+        rules();
+
+        int hiddenNumber = randomNumber();
+        int usersNumber;
+        int gameCounter = 0;
+    //    string usersAnswer = "Y";
+
+    //    while (playAgain2(usersAnswer))
+    //    {
+
+        
+            while (gameCounter <= 2)
+            {
+                usersNumber = enterNumber();
+                if (checkGame(hiddenNumber, usersNumber, gameCounter))
+                {
+    //                playAgain();
+    //                hiddenNumber = randomNumber();
+    //                gameCounter = 0;
+                    return;
+                }
+                gameCounter++;
+            }
+            Console.WriteLine("You have lost! The hidden number was:" + hiddenNumber);
+    //        playAgain();
+    //        hiddenNumber = randomNumber();
+    //        gameCounter = 0;
+    //    }
+    //        Console.WriteLine("Have a nice day");
+    }
+
+    static void rules()
+    {
+        Console.WriteLine("Let's play a game. I have a hidden number for you.");
+        Console.WriteLine("This number is between 0 to 20. Please, guess it.");
+        Console.WriteLine("You have three attempts.");
+        Console.WriteLine();
+    }
+
+    static int randomNumber()
+    {
+        return new Random().Next(0, 5);
+    }
+
+    static int enterNumber()
+    {
+        Console.Write("Please, enter a number: ");
+        return Int32.Parse(Console.ReadLine());
+    }
+
+    static bool checkGame(int hiddenNumber, int usersNumber, int gameCounter)
+    {
+        if (hiddenNumber == usersNumber)
+        {
+            Console.WriteLine("You have won!");
+                return true;
+        }
+        else if (hiddenNumber > usersNumber && gameCounter <= 1)
+        {
+            Console.WriteLine("Hidden number is grater then your number");
+        }
+        else if (hiddenNumber < usersNumber && gameCounter <= 1)
+        {
+            Console.WriteLine("Hidden number is lower then your number");
+        }
+        return false;
+    }
+
+  //  static void playAgain()
+  //  {
+  //      Console.Write("Whould you like to play again? type Y for Yes: ");
+  //      string usersAnswer = Console.ReadLine();
+  //  }
+
+  //  static bool playAgain2(string usersAnswer)
+  //  {
+  //      if (usersAnswer == "Y")
+  //      {
+   //         return true;
+   //     }
+   //     else
+   //     {
+   //         return false;
+   //     }
+   // }
+}
