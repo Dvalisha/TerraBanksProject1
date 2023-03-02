@@ -103,7 +103,6 @@ class MyMain
                 default:
                     Console.WriteLine("There is no such fruit");
                     break;
-            Console.WriteLine();
             }
         }
     }
