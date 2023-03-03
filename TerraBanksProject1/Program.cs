@@ -17,30 +17,29 @@ class MyMain
         int hiddenNumber = randomNumber();
         int usersNumber;
         int gameCounter = 0;
-    //    string usersAnswer = "Y";
+        string usersAnswer = "Y";
 
-    //    while (playAgain2(usersAnswer))
-    //    {
+        do
+        {
 
-        
+
             while (gameCounter <= 2)
             {
                 usersNumber = enterNumber();
                 if (checkGame(hiddenNumber, usersNumber, gameCounter))
                 {
-    //                playAgain();
-    //                hiddenNumber = randomNumber();
-    //                gameCounter = 0;
-                    return;
+                  //  playAgain();
+                  //  hiddenNumber = randomNumber();
+                  //  gameCounter = 0;
+                    break;
                 }
                 gameCounter++;
             }
-            Console.WriteLine("You have lost! The hidden number was:" + hiddenNumber);
-    //        playAgain();
-    //        hiddenNumber = randomNumber();
-    //        gameCounter = 0;
-    //    }
-    //        Console.WriteLine("Have a nice day");
+            playAgain();
+            hiddenNumber = randomNumber();
+            gameCounter = 0;
+        } while (playAgain2(usersAnswer));
+            Console.WriteLine("Have a nice day");
     }
 
     static void rules()
@@ -53,7 +52,7 @@ class MyMain
 
     static int randomNumber()
     {
-        return new Random().Next(0, 5);
+        return new Random().Next(0, 21);
     }
 
     static int enterNumber()
@@ -77,24 +76,28 @@ class MyMain
         {
             Console.WriteLine("Hidden number is lower then your number");
         }
+        else if (gameCounter == 2)
+        {
+            Console.WriteLine("You have lost! The hidden number was:" + hiddenNumber);
+        }
         return false;
     }
 
-  //  static void playAgain()
-  //  {
-  //      Console.Write("Whould you like to play again? type Y for Yes: ");
-  //      string usersAnswer = Console.ReadLine();
-  //  }
+    static void playAgain()
+    {
+        Console.Write("Whould you like to play again? type Y for Yes: ");
+        string usersAnswer = Console.ReadLine();
+    }
 
-  //  static bool playAgain2(string usersAnswer)
-  //  {
-  //      if (usersAnswer == "Y")
-  //      {
-   //         return true;
-   //     }
-   //     else
-   //     {
-   //         return false;
-   //     }
-   // }
+    static bool playAgain2(string usersAnswer)
+    {
+        if (usersAnswer == "Y")
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }
