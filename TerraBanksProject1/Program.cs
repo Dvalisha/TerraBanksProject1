@@ -17,7 +17,6 @@ class MyMain
         int hiddenNumber = randomNumber();
         int usersNumber;
         int gameCounter = 0;
-       // string usersAnswer = "Y";
 
         do
         {
@@ -32,7 +31,6 @@ class MyMain
                 }
                 gameCounter++;
             }
-           // playAgain();
             hiddenNumber = randomNumber();
             gameCounter = 0;
         } while (playAgain2(playAgain()));
@@ -84,12 +82,11 @@ class MyMain
     {
         Console.Write("Whould you like to play again? type Y for Yes: ");
         return Console.ReadLine();
-       // string usersAnswer = Console.ReadLine();
     }
 
     static bool playAgain2(string usersAnswer)
     {
-        if (usersAnswer.Equals("Y"))
+        if (usersAnswer == "Y")
         {
             return true;
         }
