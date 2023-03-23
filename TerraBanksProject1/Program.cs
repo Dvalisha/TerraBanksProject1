@@ -56,6 +56,7 @@ class MyMain
 
         Console.Write("Please, enter second number: ");
         int y2 = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine();
 
         if (y1 >= y2)
         {
@@ -88,8 +89,45 @@ class MyMain
         Console.WriteLine("Seventh element is: " + numbers[6]);
         Console.WriteLine();
 
+        //7. შექმენით მასივები შემდეგი განზომილებებით და შეავსე რიცხვებით: ორგანზომილებიანი [3,2], [4,2]. სამგზანზომილებიანი [2,2,2], [1,2,3]
 
+        int[,] array2A = new int[3, 2]
+        {
+            {13, 25 },
+            {-5, -13 },
+            {47, -12 }
+        };
 
+        Console.Write(array2A[0, 1]);
+        Console.WriteLine();
+
+        int[,] array2B = new int[4, 2]
+        {
+            {3, 2 },
+            {12, 885 },
+            {27, -1 },
+            {313, 0 }
+        };
+
+        Console.Write(array2B[2, 0]);
+        Console.WriteLine();
+
+        int[,,] array3A = new int[2, 2, 2]
+        {
+            { {77, 87 }, {2, 18 } },
+            { {0, 475 }, {36, -15 } }
+        };
+
+        Console.Write(array3A[1, 1, 0]);
+        Console.WriteLine();
+
+        int[,,] array3B = new int[1, 2, 3]
+        {
+            { {17, -61, -11 }, {256, 11, 51 } },
+        };
+
+        Console.Write(array3B[0, 0, 2]);
+        Console.WriteLine();
 
     }
 }
