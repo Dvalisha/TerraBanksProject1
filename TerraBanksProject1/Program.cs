@@ -6,93 +6,90 @@ class MyMain
 {
     static void Main(string[] args)
     {
-        // Game
-        startGame();
-    }
+        //1. დაწერეთ პროგრამა, რომელიც გამოთვლის კონსოლიდან შეყვანილი ორი რიცხვის ნამრავლს.
 
-    static void startGame()
-    {
-        rules();
+        Console.Write("Please, enter first number: ");
+        int x1 = Int32.Parse(Console.ReadLine());
 
-        int hiddenNumber = randomNumber();
-        int usersNumber;
-        int gameCounter = 0;
+        Console.Write("Please, enter second number: ");
+        int x2 = Int32.Parse(Console.ReadLine());
 
-        do
-        {
+        int product = x1 * x2;
 
-
-            while (gameCounter <= 2)
-            {
-                usersNumber = enterNumber();
-                if (checkGame(hiddenNumber, usersNumber, gameCounter))
-                {
-                    break;
-                }
-                gameCounter++;
-            }
-            hiddenNumber = randomNumber();
-            gameCounter = 0;
-        } while (playAgain2(playAgain()));
-            Console.WriteLine("Have a nice day");
-    }
-
-    static void rules()
-    {
-        Console.WriteLine("Let's play a game. I have a hidden number for you.");
-        Console.WriteLine("This number is between 0 to 20. Please, guess it.");
-        Console.WriteLine("You have three attempts.");
+        Console.Write("The product is: " + product);
         Console.WriteLine();
-    }
 
-    static int randomNumber()
-    {
-        return new Random().Next(0, 21);
-    }
+        //2. დაწერეთ პროგრამა, რომელიც კონსოლზე გამოიტანს თქვენ სახელს, გვარს და ასაკს.
 
-    static int enterNumber()
-    {
-        Console.Write("Please, enter a number: ");
-        return Int32.Parse(Console.ReadLine());
-    }
+        Console.WriteLine();
+        Console.Write("Please, enter your name: ");
+        string name = Console.ReadLine();
 
-    static bool checkGame(int hiddenNumber, int usersNumber, int gameCounter)
-    {
-        if (hiddenNumber == usersNumber)
-        {
-            Console.WriteLine("You have won!");
-                return true;
-        }
-        else if (hiddenNumber > usersNumber && gameCounter <= 1)
-        {
-            Console.WriteLine("Hidden number is grater then your number");
-        }
-        else if (hiddenNumber < usersNumber && gameCounter <= 1)
-        {
-            Console.WriteLine("Hidden number is lower then your number");
-        }
-        else if (gameCounter == 2)
-        {
-            Console.WriteLine("You have lost! The hidden number was:" + hiddenNumber);
-        }
-        return false;
-    }
+        Console.Write("Please, enter your surname: ");
+        string surname = Console.ReadLine();
 
-    static string playAgain()
-    {
-        Console.Write("Whould you like to play again? type Y for Yes: ");
-        return Console.ReadLine();
-    }
+        Console.Write("Please, enter your age: ");
+        int age = Int32.Parse(Console.ReadLine());
 
-    static bool playAgain2(string usersAnswer)
-    {
-        if (usersAnswer == "Y")
+        Console.Write("Your name is " + name + ".Your surname is " + surname + ".Your age is " + age + ".");
+        Console.WriteLine();
+
+        //3. დაწერეთ პროგრამა, რომელიც გამოიტანს ნაშთს კონსოლიდან გადაცემული ორი რიცხვის გაყოფის შედეგად.
+
+        Console.WriteLine();
+        Console.Write("Please, enter dividen: ");
+        int dividend = Int32.Parse(Console.ReadLine());
+
+        Console.Write("Please, enter divisor: ");
+        int divisor = Int32.Parse(Console.ReadLine());
+
+        int remainder = dividend % divisor;
+
+        Console.Write("The remainder is: " + remainder);
+        Console.WriteLine();
+
+        //4. შედარების ლოგიკური ოპერატორების საშუალებით შეადარეთ რიცხვები და დაწერეთ პროგრამა, რომელიც გამოიტანს true ან false.
+
+        Console.WriteLine();
+        Console.Write("Please, enter first number: ");
+        int y1 = Convert.ToInt32(Console.ReadLine());
+
+        Console.Write("Please, enter second number: ");
+        int y2 = Convert.ToInt32(Console.ReadLine());
+
+        if (y1 >= y2)
         {
-            return true;
-        }
+            Console.WriteLine("True");
+        } 
         else
         {
-            return false;
+            Console.WriteLine("False");
         }
+        Console.WriteLine();
+
+        //5. ჩაწერეთ შემდეგი პირობა Boolean ლოგიკური ოპერატორის გამოყენებით: A>B და A>C, A>B ან A>C. როცა A=5 B=4 C=7
+
+        int a = 5;
+        int b = 4;
+        int c = 7;
+
+        bool logic1 = a > b && a > c;
+        Console.WriteLine(logic1);
+
+        bool logic2 = a > b || a > c;
+        Console.WriteLine(logic2);
+        Console.WriteLine();
+
+        //6. შექმენით რიცხვითი ტიპის, 10 ელემენტისაგან შემდგარი მასივი. კონსოლზე გამოიტანეთ პირველი და მეშვიდე ელემენტი.
+        
+        int[] numbers = new int[10] { 20, -5, 39, 47, -99, 165, 300, 0, 68, -5 };
+
+        Console.WriteLine("First element is: " + numbers[0]);
+        Console.WriteLine("Seventh element is: " + numbers[6]);
+        Console.WriteLine();
+
+
+
+
     }
 }
