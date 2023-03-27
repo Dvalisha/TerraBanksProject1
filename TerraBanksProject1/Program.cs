@@ -132,10 +132,15 @@ class MyMain
 
         for (int i = 0; i < (h - g) / 2 ; i++)
         {
-            if(g % 2 == 0)
+            if(g % 2 == 0 & h % 2 == 1)
             {
                 Console.WriteLine("Number = {0}", g + (i * 2));
-            } 
+                h++;
+            }
+            else if (g % 2 == 0)
+            {
+                Console.WriteLine("Number = {0}", g + (i * 2));
+            }
             else
             {
                 Console.WriteLine("Number = {0}", g + 1 + (i * 2));
