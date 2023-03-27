@@ -124,10 +124,10 @@ class MyMain
 
         //7. For ციკლის საშუალებით გამოთვალეთ და კონსოლზე გამოიტანეთ ყველა ლუწი რიცხვი, იმ ორი რიცხვის დიაპაზონში რომელსაც გადავცემთ კონსოლიდან.
 
-        Console.Write("Please enter first number: ");
+        Console.Write("Please enter first (lower) number: ");
         int g = Int32.Parse(Console.ReadLine());
 
-        Console.Write("Please enter second number: ");
+        Console.Write("Please enter second (Higher) number: ");
         int h = Int32.Parse(Console.ReadLine());
 
         for (int i = 0; i < (h - g) / 2 ; i++)
