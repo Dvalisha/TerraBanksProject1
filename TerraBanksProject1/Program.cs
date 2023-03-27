@@ -16,7 +16,7 @@ class MyMain
 
         int product = x1 * x2;
 
-        Console.Write("The product is: " + product);
+        Console.Write(x1 + x2);
         Console.WriteLine();
 
         //2. დაწერეთ პროგრამა, რომელიც კონსოლზე გამოიტანს თქვენ სახელს, გვარს და ასაკს.
